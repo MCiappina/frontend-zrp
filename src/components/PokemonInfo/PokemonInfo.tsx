@@ -1,4 +1,6 @@
 import React from 'react';
+import * as S from './style';
+
 
 interface PokemonInfoProps {
   name: string;
@@ -14,22 +16,22 @@ const PokemonInfo: React.FC<PokemonInfoProps> = ({
   types,
 }) => {
   return (
-    <div>
+    <S.PokemonInfoContainer>
       <h2>{name}</h2>
-      <img src={image} alt={name} />
+      <S.Image src={image} alt={name} />
       <h3>Abilities:</h3>
-      <ul>
+      <S.AbilitiesList >
         {abilities.map((ability, index) => (
-          <li key={index}>{ability}</li>
+          <S.AbilityItem key={index}>{ability}</S.AbilityItem>
         ))}
-      </ul>
+      </S.AbilitiesList>
       <h3>Types:</h3>
-      <ul>
+      <S.TypesList >
         {types.map((type, index) => (
-          <li key={index}>{type}</li>
+          <S.TypeItem key={index}>{type}</S.TypeItem >
         ))}
-      </ul>
-    </div>
+      </S.TypesList >
+    </S.PokemonInfoContainer>
   );
 };
 

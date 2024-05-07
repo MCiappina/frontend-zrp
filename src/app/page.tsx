@@ -1,10 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import Button from '../components/Button';
-import Input from '../components/Input';
-import PokemonInfo from '../components/PokemonInfo';
-import ErrorComponent from '../components/ErrorComponent';
+import Button from '../components/Button/Button';
+import Input from '../components/Input/Input';
+import PokemonInfo from '../components/PokemonInfo/PokemonInfo';
+import ErrorComponent from '../components/ErrorComponent/ErrorComponent';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
 
 const Home: React.FC = () => {
   const [pokemon, setPokemon] = useState('');
@@ -38,7 +46,7 @@ const Home: React.FC = () => {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Pokemon Search</h1>
       <Input
         value={pokemon}
@@ -56,7 +64,7 @@ const Home: React.FC = () => {
           types={pokemonData.types.map((type: any) => type.type.name)}
         />
       )}
-    </div>
+    </Container>
   );
 };
 

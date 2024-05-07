@@ -1,18 +1,15 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Frontend ZRP - PokeApp",
-  description: "PokeApp for job interview",
-};
-
+import StyledComponentsRegistry from '../lib/registry'
+ 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html>
+      <body>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
-  );
+  )
 }
