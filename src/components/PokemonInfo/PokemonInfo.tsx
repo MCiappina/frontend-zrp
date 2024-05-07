@@ -7,7 +7,6 @@ interface PokemonInfoProps {
   image: string;
   abilities: string[];
   types: string[];
-  loading: boolean;
 }
 
 const PokemonInfo: React.FC<PokemonInfoProps> = ({
@@ -15,7 +14,6 @@ const PokemonInfo: React.FC<PokemonInfoProps> = ({
   image,
   abilities,
   types,
-  loading
 }) => {
   return (
     <S.Card loaded={name ? true : false}>

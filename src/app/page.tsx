@@ -12,7 +12,6 @@ const Home: React.FC = () => {
   const [pokemonData, setPokemonData] = useState<any>(null);
   const [error, setError] = useState<Error | null>(null);
   const [showPokemonInfo, setShowPokemonInfo] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchData = async () => {
     try {
@@ -28,12 +27,10 @@ const Home: React.FC = () => {
       setPokemonData(data);
       setError(null);
       setShowPokemonInfo(true);
-      setLoading(false)
 
     } catch (error) {
       console.log(error)
       setError(new Error('Something went wrong'));
-      setLoading(false)
     }
   };
 
@@ -41,7 +38,6 @@ const Home: React.FC = () => {
     setPokemonData(null);
     setError(null);
     setShowPokemonInfo(false);
-    setLoading(true);
     await fetchData();
   }
 
@@ -68,7 +64,6 @@ const Home: React.FC = () => {
                 image={pokemonData.sprites.front_default}
                 abilities={pokemonData.abilities.map((ability: any) => ability.ability.name)}
                 types={pokemonData.types.map((type: any) => type.type.name)}
-                loading={loading}
               />
             )}
           </div>

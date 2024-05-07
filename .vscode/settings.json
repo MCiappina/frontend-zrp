@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "styled-components"
+        "styled-components",
+        "page_style"
     ]
 }
