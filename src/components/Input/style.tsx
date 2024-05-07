@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 const StyledInput = styled.input`
   padding: 10px;
-  border: 1px solid #ccc;
+  font-size: 1.2rem;
   border-radius: 5px;
-  width: 100%;
-  max-width: 300px;
+  flex: 1;
 `;
 
 export default StyledInput;

@@ -7,6 +7,7 @@ interface PokemonInfoProps {
   image: string;
   abilities: string[];
   types: string[];
+  loading: boolean;
 }
 
 const PokemonInfo: React.FC<PokemonInfoProps> = ({
@@ -14,24 +15,25 @@ const PokemonInfo: React.FC<PokemonInfoProps> = ({
   image,
   abilities,
   types,
+  loading
 }) => {
   return (
-    <S.PokemonInfoContainer>
-      <h2>{name}</h2>
+    <S.Card loaded={name ? true : false}>
+      <S.Name>{name}</S.Name>
       <S.Image src={image} alt={name} />
-      <h3>Abilities:</h3>
+      <S.Abilities>Abilities:</S.Abilities>
       <S.AbilitiesList >
         {abilities.map((ability, index) => (
           <S.AbilityItem key={index}>{ability}</S.AbilityItem>
         ))}
       </S.AbilitiesList>
-      <h3>Types:</h3>
+      <S.Types>Types:</S.Types>
       <S.TypesList >
         {types.map((type, index) => (
           <S.TypeItem key={index}>{type}</S.TypeItem >
         ))}
       </S.TypesList >
-    </S.PokemonInfoContainer>
+    </S.Card>
   );
 };
 
