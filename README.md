@@ -21,7 +21,7 @@ Replace #### with the port number used for the backend.
 
 3. Build the Docker image:
    ```
-   docker build -t frontend-zrp
+   docker buildx build . -t frontend-zrp
    ```
 4. Run the Docker image:
    ```
