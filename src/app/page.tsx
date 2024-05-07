@@ -15,7 +15,7 @@ const Home: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_POKE_API_URL!, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL!}/pokemon`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
