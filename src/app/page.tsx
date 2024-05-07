@@ -5,49 +5,7 @@ import Button from '../components/Button/Button';
 import Input from '../components/Input/Input';
 import PokemonInfo from '../components/PokemonInfo/PokemonInfo';
 import ErrorComponent from '../components/ErrorComponent/ErrorComponent';
-import styled, { keyframes, createGlobalStyle } from 'styled-components';
-
-
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #333;
-`;
-
-export const Content = styled.div`
-  max-width: 900px;
-  width: 100%;
-  padding: 20px;
-  background-color: #222;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Pokemon', sans-serif;
-  color: #ccc;
-  transition: transform 0.3s ease;
-`;
-
-export const H1 = styled.h1`
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-`;
-
-export const InputContainer = styled.div`
-  display: flex;
-  margin-bottom: 20px;
-  gap: 10px;
-`;
-
-const PokemonContainer = styled.div`
-`;
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-`;
+import * as S from '../assets/page_style';
 
 const Home: React.FC = () => {
   const [pokemon, setPokemon] = useState('');
@@ -89,21 +47,21 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <GlobalStyle />
-      <Container>
-        <Content>
-          <H1>Pokemon Search</H1>
-          <InputContainer>
+      <S.GlobalStyle />
+      <S.Container>
+        <S.Content>
+          <S.H1>Pokemon Search</S.H1>
+          <S.InputContainer>
             <Input
               value={pokemon}
               onChange={(e) => setPokemon(e.target.value)}
               placeholder="Enter Pokemon name"
             />
             <Button onClick={handleSearch}>Search</Button>
-          </InputContainer>
+          </S.InputContainer>
           {error && (<ErrorComponent error={error} />)}
 
-          <PokemonContainer>
+          <div>
             {showPokemonInfo && (
               <PokemonInfo
                 name={pokemonData.name}
@@ -113,9 +71,9 @@ const Home: React.FC = () => {
                 loading={loading}
               />
             )}
-          </PokemonContainer>
-        </Content>
-      </Container>
+          </div>
+        </S.Content>
+      </S.Container>
     </>
   );
 };
